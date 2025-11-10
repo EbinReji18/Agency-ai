@@ -1,6 +1,7 @@
 import React from 'react'
 import assets from '../assets/assets'
 import Title from '../components/Title'
+import ServiceCard from '../components/ServiceCard'
 
 const Services = () => {
 
@@ -44,19 +45,12 @@ const Services = () => {
         desc='From strategy to execution, we craft digital solutions that move your business forward.'
       />
 
-      {/* services grid */}
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl'>
+      <div className='flex flex-col md:grid grid-cols-2'>
         {servicesData.map((service, index) => (
-          <div
-            key={index}
-            className='flex flex-col items-center text-center gap-3 p-6 border border-gray-200 dark:border-white/20 rounded-2xl hover:shadow-md transition-all duration-300 bg-white/40 dark:bg-white/5 backdrop-blur-sm'
-          >
-            <img src={service.icon} alt={service.title} className='w-12 h-12 object-contain' />
-            <h3 className='font-semibold text-lg'>{service.title}</h3>
-            <p className='text-sm text-gray-500 dark:text-white/70'>{service.description}</p>
-          </div>
+          <ServiceCard key={index} service={service} />
         ))}
       </div>
+
     </div>
   )
 }
